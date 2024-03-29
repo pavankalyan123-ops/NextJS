@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import sampleData from "@/mockData/usersList";
 
 type Params = {
-  id1: string;
+  id: number;
 };
 
 export async function GET(
@@ -10,14 +10,10 @@ export async function GET(
   context: { params: Params },
   res: NextResponse
 ) {
-  const { id1 } = context.params;
-  console.log("id value......", id1);
-  const searchparams = req.nextUrl.searchParams;
-  console.log("search params is", searchparams);
-  const q = searchparams.get("q") || "";
-  console.log("q is .....", q);
-  const dynamicSegment = req.url.split("/").pop() ?? "";
-  const id = parseInt(dynamicSegment);
+  const id = Number(context.params.id);
+
+  // const dynamicSegment = req.url.split("/").pop() ?? "";
+  // const id = parseInt(dynamicSegment);
   const data = sampleData.find((d) => d.id === id);
 
   return NextResponse.json(data);
