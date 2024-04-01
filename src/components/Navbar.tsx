@@ -32,7 +32,7 @@ export default function NavbarEx() {
               </Link>
             </NavbarItem>
             <NavbarItem isActive>
-              <Button>Add Contact</Button>
+              <Button color="primary">Groups</Button>
             </NavbarItem>
             <NavbarItem>
               <Link color="foreground" href="#">
