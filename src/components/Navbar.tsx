@@ -32,9 +32,7 @@ export default function NavbarEx() {
               </Link>
             </NavbarItem>
             <NavbarItem isActive>
-              <Link href="#" aria-current="page" color="secondary">
-                Customers
-              </Link>
+              <Button>Add Contact</Button>
             </NavbarItem>
             <NavbarItem>
               <Link color="foreground" href="#">
