@@ -25,7 +25,17 @@ const Modelview: React.FC<Props> = ({
   return (
     <>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
-        <ModalContent>{(onClose) => <></>}</ModalContent>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                {modelHeaderName}
+              </ModalHeader>
+              <ModalBody>{modelBody}</ModalBody>
+              <ModalFooter>{modelSubmitName}</ModalFooter>
+            </>
+          )}
+        </ModalContent>
       </Modal>
     </>
   );
