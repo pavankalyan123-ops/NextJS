@@ -14,7 +14,16 @@ const initialState = {
 
 const Users = () => {
   const { data } = useGetUsersQuery();
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const {
+    isOpen: isAddContactOpen,
+    onOpen: onAddContactOpen,
+    onOpenChange: onAddContactOpenChange,
+  } = useDisclosure();
+  const {
+    isOpen: isDeleteOpen,
+    onOpen: onDeleteOpen,
+    onOpenChange: onDeleteOpenChange,
+  } = useDisclosure();
   const [newUser, setNewUser] = useState<Tuser>(initialState);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,12 +33,12 @@ const Users = () => {
   };
   return (
     <>
-      <Button onPress={onOpen} color="primary">
+      <Button onPress={onAddContactOpen} color="primary">
         Add Contact
       </Button>
       <Modelview
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
+        isOpen={isAddContactOpen}
+        onOpenChange={onAddContactOpenChange}
         modelBody={
           <>
             <Input
@@ -70,9 +79,19 @@ const Users = () => {
         <div>
           <p>
             {user.name} --- {user.email}
+            <Button onPress={onDeleteOpen} color="danger">
+              Delete
+            </Button>
           </p>
         </div>
       ))}
+      <Modelview
+        isOpen={isDeleteOpen}
+        onOpenChange={onDeleteOpenChange}
+        modelBody={<></>}
+        modelHeaderName="Are you sure you want to delete"
+        modelSubmitName="Yes"
+      />
     </>
   );
 };
