@@ -18,3 +18,5 @@ export async function GET(
 
   return NextResponse.json(data);
 }
+
+export async function DELETE(req: Request) {}
