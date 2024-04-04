@@ -34,7 +34,7 @@ const Users = () => {
   return (
     <>
       <Button onPress={onAddContactOpen} color="primary">
-        Add Contact
+        Add User
       </Button>
       <Modelview
         isOpen={isAddContactOpen}
